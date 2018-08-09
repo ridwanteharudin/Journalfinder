@@ -32,7 +32,7 @@ class StopWordRemoverFactory
             'dapat', 'dsb', 'dst', 'dll', 'dahulu', 'dulunya', 'anu', 'demikian', 'tapi', 'ingin',
             'juga', 'nggak', 'mari', 'nanti', 'melainkan', 'oh', 'ok', 'seharusnya', 'sebetulnya',
             'setiap', 'setidaknya', 'sesuatu', 'pasti', 'saja', 'toh', 'ya', 'walau', 'tolong',
-            'tentu', 'amat', 'apalagi', 'bagaimanapun',
+            'tentu', 'amat', 'apalagi', 'bagaimanapun','Periodicals,','Periodicals;','Periodicals',
         );
     }
 }
