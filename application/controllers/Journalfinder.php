@@ -19,7 +19,7 @@ class Journalfinder extends CI_Controller {
 	 */
 	public function __construct() {
           parent::__construct();
-          $this->load->model(array('data'));
+          $this->load->model(array('Data'));
           $this->load->helper(array('url'));
     }
 	public function index()
@@ -35,7 +35,7 @@ class Journalfinder extends CI_Controller {
 		$stopword = $stopwordFactory->createStopWordRemover();
         $stemmer  = $stemmerFactory->createStemmer();
         $date = date("Y-m-d");
-		$artikel = $this->data->getArtikel($date);
+		$artikel = $this->Data->getArtikel($date);
 		foreach ($artikel->result() as $key) {
 			$title = $key -> title;
 			$keyword = $key -> keywords;
@@ -201,7 +201,7 @@ class Journalfinder extends CI_Controller {
 	//melakukan perulangan yang bertujuan untuk menghitung rata-rata jika ada jurnal yang memiliki beberapa artikel
 	public function averageJurnal($result){
 		$date = date("Y-m-d");
-		$artikel = $this->data->getArtikel($date);
+		$artikel = $this->Data->getArtikel($date);
 		foreach ($artikel->result() as $key) {
 			if(empty($finaltotalallstep[$key->id_direktori])){
 				$finaltotalallstep[$key->id_direktori] = $result[$key->id_jurnal];
@@ -260,7 +260,7 @@ class Journalfinder extends CI_Controller {
 
 		//update json
 		$date = date("Y-m-d");
-		$maxDateJurnal=$this->data->getMaxDateJurnal($date)->result();
+		$maxDateJurnal=$this->Data->getMaxDateJurnal($date)->result();
 		$maxDate = (array) $maxDateJurnal[0];
 		$jsonDate = strtotime(date("Y-F-d",filemtime("datapdf.json")));
 		if(strtotime($maxDate['tanggal'])>$jsonDate){
@@ -278,12 +278,12 @@ class Journalfinder extends CI_Controller {
 
 		//penentuan jurnal mana yang akan ditampilkan sesuai dengan kriteria yg telah ditentukan
 		$date = date("Y-m-d");
-		$artikel = $this->data->getArtikel($date);
+		$artikel = $this->Data->getArtikel($date);
 		foreach ($finaltotalallstep as $key=>$val) { //perulangan sejumlah artikel
 
 			if($val>=10){ //jurnal yang akan digunakan adalah jurnal yang memiliki tingkat kesamaan lebih dari 10%
 
-				$jurnal= $this->data->getJurnal($key); //mengambil data jurnal sesuai dengan id yang dipanggil
+				$jurnal= $this->Data->getJurnal($key); //mengambil data jurnal sesuai dengan id yang dipanggil
 
 				if($jurnal['judul'] != ""){
 					if(!empty($datafinal[$key]['totalstep'])){ //kondisi ini dilakukan agar jika terdapat jurnal yang memiliki beberapa artikel, maka semua data artikel itu akan dimasukan ke dalam data jurnal

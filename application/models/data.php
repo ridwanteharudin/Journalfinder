@@ -1,5 +1,5 @@
 <?php
-class data extends CI_Model{
+class Data extends CI_Model{
   var $tabel1 = 'jurnal';
   var $tabel2 = 'direktori';
   var $tabel3 = 'stemmer';
