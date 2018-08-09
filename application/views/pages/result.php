@@ -14,7 +14,7 @@
           <!-- <th scope="col">Alamat</th> -->
           <!-- <th scope="col">Editor</th> -->
           <th scope="col">Deskriptor</th>
-          <th scope="col">Artikel Terkait</th>
+          <th scope="col">Website</th>
         </tr>
       </thead>
       <tbody>
