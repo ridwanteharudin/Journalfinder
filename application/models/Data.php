@@ -23,7 +23,7 @@ class Data extends CI_Model{
 
   }
   function getArtikel($date){
-    $this->db->select('id_jurnal,id_direktori,title,sari,keywords,tanggal');
+    $this->db->select('id_jurnal,id_direktori,title,sari,deskriptor,tanggal');
     $this->db->from('jurnal');
     $this->db->where('sari !=',"");
     $this->db->where('sari !=',"null");
@@ -31,8 +31,8 @@ class Data extends CI_Model{
     $this->db->where('sari !=',"tdk. ada");
     $this->db->where('sari !=',"tdk");
     $this->db->where('sari !=',"tdk .ada");
-    $this->db->where('keywords !=',"");
-    $this->db->where('keywords !=',"null");
+    $this->db->where('deskriptor !=',"");
+    $this->db->where('deskriptor !=',"null");
     $this->db->where('id_direktori !=',"");
     $this->db->where('id_direktori !=',"null");
     $this->db->where('tanggal <',$date);
@@ -45,8 +45,8 @@ class Data extends CI_Model{
     $this->db->where('id_direktori',$id);
     $this->db->where('sari !=',"");
     $this->db->where('sari !=',"null");
-    $this->db->where('keywords !=',"");
-    $this->db->where('keywords !=',"null");
+    $this->db->where('deskriptor !=',"");
+    $this->db->where('deskriptor !=',"null");
     $this->db->where('id_direktori !=',"");
     $this->db->where('id_direktori !=',"null");
     return $this->db->get();
