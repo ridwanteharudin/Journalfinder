@@ -68,6 +68,7 @@ class Journalfinder extends CI_Controller {
 
 
 	public function similarity($data){ //abstract user dibandingkan dengan judul, abstract dan keyword pada artikel
+		ini_set('memory_limit', '-1');
 		$datapdf = json_decode(file_get_contents('datapdf.json'), True);
 		foreach ($datapdf as $key) {
 			
