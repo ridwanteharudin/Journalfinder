@@ -206,7 +206,7 @@ class Journalfinder extends CI_Controller {
 			if(empty($finaltotalallstep[$key['id_direktori']])){
 				$finaltotalallstep[$key['id_direktori']] = $result[$key['id_jurnal']];
 			}else{
-				if($finaltotalallstep[$key['id_direktori']] < $result[$key['id_jurnal']){
+				if($finaltotalallstep[$key['id_direktori']] < $result[$key['id_jurnal']]){
 					$finaltotalallstep[$key['id_direktori']] = $result[$key['id_jurnal']];
 				}else{
 					$finaltotalallstep[$key['id_direktori']] = $finaltotalallstep[$key['id_direktori']];
