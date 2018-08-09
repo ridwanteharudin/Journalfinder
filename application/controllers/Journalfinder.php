@@ -201,16 +201,15 @@ class Journalfinder extends CI_Controller {
 
 	//melakukan perulangan yang bertujuan untuk menghitung rata-rata jika ada jurnal yang memiliki beberapa artikel
 	public function averageJurnal($result){
-		$date = date("Y-m-d");
-		$artikel = $this->Data->getArtikel($date);
-		foreach ($artikel->result() as $key) {
-			if(empty($finaltotalallstep[$key->id_direktori])){
-				$finaltotalallstep[$key->id_direktori] = $result[$key->id_jurnal];
+		$datapdf = json_decode(file_get_contents('datapdf.json'), True);
+		foreach ($datapdf as $key) {
+			if(empty($finaltotalallstep[$key['id_direktori']])){
+				$finaltotalallstep[$key['id_direktori']] = $result[$key['id_jurnal']];
 			}else{
-				if($finaltotalallstep[$key->id_direktori] < $result[$key->id_jurnal]){
-					$finaltotalallstep[$key->id_direktori] = $result[$key->id_jurnal];
+				if($finaltotalallstep[$key['id_direktori']] < $result[$key['id_jurnal']){
+					$finaltotalallstep[$key['id_direktori']] = $result[$key['id_jurnal']];
 				}else{
-					$finaltotalallstep[$key->id_direktori] = $finaltotalallstep[$key->id_direktori];
+					$finaltotalallstep[$key['id_direktori']] = $finaltotalallstep[$key['id_direktori']];
 				}
 			}
 		}
