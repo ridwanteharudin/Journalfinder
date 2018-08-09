@@ -38,7 +38,7 @@ class Journalfinder extends CI_Controller {
 		$artikel = $this->Data->getArtikel($date);
 		foreach ($artikel->result() as $key) {
 			$title = $key -> title;
-			$keyword = $key -> keywords;
+			$keyword = $key -> deskriptor;
 			$abstract = $key -> sari;
 			
 			$titleStem = $stemmer->stem($title);
