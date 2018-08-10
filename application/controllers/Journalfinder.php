@@ -299,7 +299,7 @@ class Journalfinder extends CI_Controller {
 								'alamat' => $jurnal['alamat'],
 								'deskriptor' => $subject,
 								'match' => round($finaltotalallstep[$key],2),
-								'action' => '<a onclick="" class="btn btn-sm btn-primary" href="javascript:void(0)" title="Edit"><i class="glyphicon glyphicon-pencil"></i> Detail</a>'
+								'action' => '<a href="http://inasti.lipi.go.id/inasti5/Journal/detail/'.$key.'" href="javascript:void(0)" title="Edit"><i class="glyphicon glyphicon-pencil"></i> Detail</a>'
 							);
 					}else{
 						$deskriptor = $stopword->remove($jurnal['deskriptor']);
@@ -313,7 +313,7 @@ class Journalfinder extends CI_Controller {
 							'alamat' => $jurnal['alamat'],
 							'deskriptor' => $subject,
 							'match' => round($finaltotalallstep[$key],2),
-							'action' => '<a onclick="" class="btn btn-sm btn-primary" href="javascript:void(0)" title="Edit"><i class="glyphicon glyphicon-pencil"></i> Detail</a>'
+							'action' =>'<a href="http://inasti.lipi.go.id/inasti5/Journal/detail/'.$key.'" class="btn btn-sm btn-primary" href="javascript:void(0)" title="Edit"><i class="glyphicon glyphicon-pencil"></i> Detail</a>'
 						);
 					}
 				}
